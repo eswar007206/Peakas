@@ -49,29 +49,36 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-4 py-16 lg:py-24 relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
+        <div className="container mx-auto px-4 py-8 relative">
+          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px]">
             {/* Left Side - Content */}
-            <div className="space-y-6">
-              {/* Auction Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-amber-400/40">
-                <Gavel className="w-4 h-4 text-amber-300" />
-                <span>不動産オークションプラットフォーム</span>
+            <div className="space-y-3 flex flex-col justify-center items-center text-center">
+              {/* Brand Logo in Hero - Prominent & Centered */}
+              <div className="w-full flex justify-center mb-1">
+                <img src="/logo.png" alt="PEAKAS" className="h-32 md:h-44 brightness-0 invert opacity-100 drop-shadow-xl" />
               </div>
-              
-              {/* Brand Logo in Hero */}
-              <div className="mb-2">
-                <img src="/logo.png" alt="PEAKAS" className="h-16 md:h-20 brightness-0 invert opacity-90" />
+
+              {/* Auction Badge */}
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-500/20 backdrop-blur-sm text-white rounded-full text-xs font-medium border border-amber-400/40">
+                  <Gavel className="w-3 h-3 text-amber-300" />
+                  <span>不動産オークションプラットフォーム</span>
+                </div>
               </div>
               
               {/* Main Heading */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                不動産を
-                <span className="block mt-2 text-amber-300">オークションで。</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
+                不動産オークションという、
+                <span className="block mt-1 text-amber-300">新しい選択肢。</span>
               </h1>
               
+              {/* Sub Tagline */}
+              <p className="text-lg md:text-xl text-white font-medium mt-1 mb-2 drop-shadow-md">
+                売りたい人と、買いたい人を、まっすぐにつなぐ。
+              </p>
+              
               {/* Description */}
-              <p className="text-lg text-white/80 max-w-xl">
+              <p className="text-sm text-white/80 max-w-lg mx-auto">
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
@@ -83,51 +90,51 @@ const Index = () => {
               </p>
 
               {/* Quick Stats */}
-              <div className="flex flex-wrap gap-6 pt-2">
+              <div className="flex flex-wrap justify-center gap-4 pt-1">
                 <div className="flex items-center gap-2 text-white/90">
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <Building2 className="w-5 h-5 text-white" />
+                  <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    <Building2 className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-xl">{isLoading ? "--" : properties.length}+</p>
-                    <p className="text-xs text-white/60">物件数</p>
+                    <p className="font-bold text-lg">{isLoading ? "--" : properties.length}+</p>
+                    <p className="text-[10px] text-white/60">物件数</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-white" />
+                  <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    <MapPin className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-xl">8</p>
-                    <p className="text-xs text-white/60">主要都市</p>
+                    <p className="font-bold text-lg">8</p>
+                    <p className="text-[10px] text-white/60">主要都市</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <div className="w-10 h-10 bg-amber-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <Gavel className="w-5 h-5 text-amber-300" />
+                  <div className="w-8 h-8 bg-amber-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    <Gavel className="w-4 h-4 text-amber-300" />
                   </div>
                   <div>
-                    <p className="font-bold text-xl">入札</p>
-                    <p className="text-xs text-white/60">形式</p>
+                    <p className="font-bold text-lg">入札</p>
+                    <p className="text-[10px] text-white/60">形式</p>
                   </div>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-4 pt-2">
                 <Link
                   to="/buy"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] text-sm"
                 >
-                  <Search className="w-5 h-5" />
+                  <Search className="w-4 h-4" />
                   物件を探す
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
                 <Link
                   to="/sell"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all text-sm"
                 >
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="w-4 h-4" />
                   物件を掲載
                 </Link>
               </div>
