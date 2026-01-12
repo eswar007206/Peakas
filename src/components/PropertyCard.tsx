@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Property } from "@/hooks/useProperties";
-import { MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, Gavel } from "lucide-react";
 import { trackPropertyClick } from "@/hooks/useAnalytics";
 import { formatPrice, formatDate } from "@/lib/formatPrice";
 
@@ -16,6 +16,12 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
       city: property.city,
       bhk: property.bhk,
     });
+  };
+
+  const handleBidClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Dummy button - does nothing for MVP
   };
 
   return (
@@ -39,6 +45,12 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
             {property.property_type === "apartment" ? "マンション" : "戸建"}
           </span>
         </div>
+        {/* Auction Badge */}
+        <div className="absolute top-3 right-3">
+          <span className="px-2.5 py-1 bg-orange-500 text-white text-xs font-medium rounded-md">
+            オークション中
+          </span>
+        </div>
       </div>
       
       <div className="p-4 space-y-3">
@@ -54,8 +66,8 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
         
         <div className="flex items-center justify-between pt-3 border-t border-border">
           <div>
-            <p className="text-xs text-muted-foreground">価格</p>
-            <p className="text-lg font-bold text-price">{formatPrice(property.start_price)}</p>
+            <p className="text-xs text-muted-foreground">現在価格</p>
+            <p className="text-lg font-bold text-orange-500">{formatPrice(property.start_price)}</p>
           </div>
           <div className="text-right">
             <p className="text-xs text-muted-foreground">掲載日</p>
@@ -65,7 +77,18 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
             </div>
           </div>
         </div>
+
+        {/* Dummy Bid Button */}
+        <button
+          onClick={handleBidClick}
+          className="w-full mt-2 py-2.5 px-4 bg-gray-100 text-gray-400 font-medium rounded-lg flex items-center justify-center gap-2 cursor-not-allowed border border-gray-200"
+          disabled
+        >
+          <Gavel className="w-4 h-4" />
+          入札する（準備中）
+        </button>
       </div>
     </Link>
   );
 };
+

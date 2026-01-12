@@ -12,6 +12,8 @@ import AdminPageViews from "./pages/AdminPageViews";
 import Auth from "./pages/Auth";
 import PropertyDetail from "./pages/PropertyDetail";
 import NotFound from "./pages/NotFound";
+import CompanyPage from "./pages/CompanyPage";
+import MyPage from "./pages/MyPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/buy" element={<Buy />} />
           <Route path="/sell" element={<Sell />} />
+          <Route path="/company" element={<CompanyPage />} />
+          <Route path="/mypage" element={<MyPage />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/property-clicks" element={<AdminPropertyClicks />} />
           <Route path="/admin/page-views" element={<AdminPageViews />} />

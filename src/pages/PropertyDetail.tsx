@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ArrowLeft, MapPin, Calendar, Home, Maximize, Bath, Car, ChevronLeft, ChevronRight, Phone, Mail, Share2 } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Home, Maximize, Bath, Car, ChevronLeft, ChevronRight, Phone, Mail, Share2, Gavel } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Property } from "@/hooks/useProperties";
 import { Header } from "@/components/Header";
@@ -163,6 +163,13 @@ const PropertyDetail = () => {
                   {property.property_type === "apartment" ? "マンション" : "戸建"}
                 </span>
               </div>
+              
+              {/* Auction Badge */}
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1.5 bg-orange-500 text-white text-sm font-medium rounded-lg">
+                  オークション中
+                </span>
+              </div>
             </div>
 
             {/* Property Info */}
@@ -176,10 +183,21 @@ const PropertyDetail = () => {
               </div>
             </div>
 
-            {/* Price */}
+            {/* Price & Bid Section */}
             <div className="bg-card rounded-xl p-6 border border-border">
-              <p className="text-sm text-muted-foreground mb-1">価格</p>
-              <p className="text-3xl font-bold text-price">{formatPrice(property.start_price)}</p>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">現在価格</p>
+                  <p className="text-3xl font-bold text-orange-500">{formatPrice(property.start_price)}</p>
+                </div>
+                <button
+                  disabled
+                  className="w-full md:w-auto px-8 py-4 bg-gray-100 text-gray-400 font-semibold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed border border-gray-200"
+                >
+                  <Gavel className="w-5 h-5" />
+                  入札する（準備中）
+                </button>
+              </div>
             </div>
 
             {/* Features */}
