@@ -1,29 +1,29 @@
-import { Search, Building2, FileCheck, Key, ArrowRight } from "lucide-react";
+import { Search, Building2, Gavel, Handshake, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     step: 1,
     icon: Search,
     title: "物件を探す",
-    description: "日本全国の厳選された物件を検索",
+    description: "厳選されたオークション物件を検索",
   },
   {
     step: 2,
     icon: Building2,
     title: "詳細を確認",
-    description: "写真や物件情報をじっくりご覧ください",
+    description: "写真や物件情報、オークション条件を確認",
   },
   {
     step: 3,
-    icon: FileCheck,
-    title: "お問い合わせ",
-    description: "内見や詳細情報についてお気軽にご連絡ください",
+    icon: Gavel,
+    title: "入札する",
+    description: "希望価格で入札。透明な競争で公正な取引",
   },
   {
     step: 4,
-    icon: Key,
-    title: "ご契約",
-    description: "専門スタッフが丁寛にサポートいたします",
+    icon: Handshake,
+    title: "落札・契約",
+    description: "落札後、専門スタッフがサポートいたします",
   },
 ];
 
@@ -33,10 +33,10 @@ export const HowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            ご利用の流れ
+            オークションの流れ
           </h2>
           <p className="text-muted-foreground mt-2">
-            理想の物件探しのステップ
+            透明な入札プロセスで安心の不動産取引
           </p>
         </div>
 
@@ -46,17 +46,17 @@ export const HowItWorks = () => {
               {/* Connector arrow */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex absolute top-12 -right-3 z-10">
-                  <ArrowRight className="w-6 h-6 text-gray-400" />
+                  <ArrowRight className="w-6 h-6 text-amber-500" />
                 </div>
               )}
               
-              <div className="bg-card rounded-xl p-6 h-full shadow-card border border-border hover:border-primary/30 hover:shadow-card-hover transition-all">
+              <div className="bg-card rounded-xl p-6 h-full shadow-card border border-border hover:border-amber-400/50 hover:shadow-card-hover transition-all">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                  <div className="w-12 h-12 bg-amber-500 text-white rounded-xl flex items-center justify-center font-bold text-lg">
                     {item.step}
                   </div>
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center">
+                    <item.icon className="w-6 h-6 text-amber-600" />
                   </div>
                 </div>
                 

@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
-import { Building2, Home, TrendingUp, Clock } from "lucide-react";
+import { Gavel, TrendingUp, Clock, Sparkles } from "lucide-react";
 
 const categories = [
   {
-    title: "物件を購入",
-    subtitle: "理想の住まいを探す",
-    icon: Home,
+    title: "オークション物件",
+    subtitle: "入札で理想の物件を",
+    icon: Gavel,
     link: "/buy",
-    bgColor: "bg-primary/10",
+    bgColor: "bg-amber-100",
   },
   {
-    title: "物件を売却",
-    subtitle: "物件を掲載する",
+    title: "物件を出品",
+    subtitle: "オークションに出品する",
     icon: TrendingUp,
     link: "/sell",
     bgColor: "bg-green-100",
   },
   {
-    title: "新着物件",
-    subtitle: "最新の物件情報",
-    icon: Building2,
+    title: "新着オークション",
+    subtitle: "最新の出品物件",
+    icon: Sparkles,
     link: "/buy?type=new",
     bgColor: "bg-blue-100",
   },
   {
-    title: "即入居可",
-    subtitle: "すぐにお引越し可能",
+    title: "まもなく終了",
+    subtitle: "入札チャンスをお見逃しなく",
     icon: Clock,
-    link: "/buy?ready=true",
+    link: "/buy?ending=soon",
     bgColor: "bg-orange-100",
   },
 ];

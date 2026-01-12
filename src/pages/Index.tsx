@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Home, ArrowRight, Search, Sparkles, Loader2, Building2, MapPin, Star, TrendingUp } from "lucide-react";
+import { Home, ArrowRight, Search, Sparkles, Loader2, Building2, MapPin, Star, TrendingUp, Gavel } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { trackPageView } from "@/hooks/useAnalytics";
@@ -53,16 +53,21 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
             {/* Left Side - Content */}
             <div className="space-y-6">
-              {/* Trusted Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/20">
-                <Star className="w-4 h-4 text-white fill-white" />
-                <span>信頼の不動産プラットフォーム</span>
+              {/* Auction Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-amber-400/40">
+                <Gavel className="w-4 h-4 text-amber-300" />
+                <span>不動産オークションプラットフォーム</span>
+              </div>
+              
+              {/* Brand Logo in Hero */}
+              <div className="mb-2">
+                <img src="/logo.png" alt="PEAKAS" className="h-16 md:h-20 brightness-0 invert opacity-90" />
               </div>
               
               {/* Main Heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                日本の厳選物件を
-                <span className="block mt-2">お探しなら</span>
+                不動産を
+                <span className="block mt-2 text-amber-300">オークションで。</span>
               </h1>
               
               {/* Description */}
@@ -73,7 +78,7 @@ const Index = () => {
                     読み込み中...
                   </span>
                 ) : (
-                  <>日本全国{properties.length}件以上の厳選された物件から、理想の住まいをお探しいただけます。</>
+                  <>透明性の高いオークション形式で、{properties.length}件以上の厳選物件を公正に取引。理想の住まいを最適な価格で。</>
                 )}
               </p>
 
@@ -98,12 +103,12 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 bg-amber-500/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    <Gavel className="w-5 h-5 text-amber-300" />
                   </div>
                   <div>
-                    <p className="font-bold text-xl">Top</p>
-                    <p className="text-xs text-white/60">品質</p>
+                    <p className="font-bold text-xl">入札</p>
+                    <p className="text-xs text-white/60">形式</p>
                   </div>
                 </div>
               </div>
@@ -180,7 +185,7 @@ const Index = () => {
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground pt-2">
-                    日本全国の厳選物件
+                    オークション形式で透明な取引を実現
                   </p>
                 </div>
               </div>
@@ -213,11 +218,11 @@ const Index = () => {
             
             <div className="relative text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                理想の物件探しを始めましょう
+                オークションで透明な不動産取引を
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                購入をお考えの方も、売却をお考えの方も、
-                私たちが丁寛にサポートいたします。
+                入札形式だから、公正な価格で取引が可能。<br />
+                売主も買主も納得のいく不動産取引を実現します。
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link

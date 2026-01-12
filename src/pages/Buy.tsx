@@ -6,7 +6,7 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { PropertyFilters, FilterState } from "@/components/PropertyFilters";
 import { usePaginatedProperties, Property } from "@/hooks/useProperties";
 import { trackPageView } from "@/hooks/useAnalytics";
-import { Search, SlidersHorizontal, X, Loader2 } from "lucide-react";
+import { Search, SlidersHorizontal, X, Loader2, Gavel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -204,11 +204,12 @@ const Buy = () => {
         {/* Page Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-              物件一覧
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground flex items-center gap-3">
+              <Gavel className="w-7 h-7 text-amber-500" />
+              オークション物件一覧
             </h1>
             <p className="text-muted-foreground mt-1">
-              {totalCount}件中 {filteredProperties.length}件を表示
+              {totalCount}件のオークション物件から {filteredProperties.length}件を表示中
             </p>
           </div>
 
@@ -342,9 +343,9 @@ const Buy = () => {
               </>
             ) : (
               <div className="text-center py-20">
-                <Search className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                <Gavel className="w-12 h-12 text-amber-400 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-                  物件が見つかりませんでした
+                  該当するオークション物件が見つかりませんでした
                 </h3>
                 <p className="text-muted-foreground">
                   検索条件を変更してお試しください

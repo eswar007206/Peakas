@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Property } from "@/hooks/useProperties";
+import { useToast } from "@/components/ui/use-toast";
 import { MapPin, Calendar, Gavel } from "lucide-react";
 import { trackPropertyClick } from "@/hooks/useAnalytics";
 import { formatPrice, formatDate } from "@/lib/formatPrice";
@@ -18,10 +19,15 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
     });
   };
 
+  const { toast } = useToast();
+
   const handleBidClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    // Dummy button - does nothing for MVP
+    toast({
+      title: "準備中",
+      description: "このサービスは将来的にオークション形式で運営される予定です。",
+    });
   };
 
   return (
@@ -78,14 +84,13 @@ export const PropertyCard = ({ property }: PropertyCardProps) => {
           </div>
         </div>
 
-        {/* Dummy Bid Button */}
+        {/* Bid Button */}
         <button
           onClick={handleBidClick}
-          className="w-full mt-2 py-2.5 px-4 bg-gray-100 text-gray-400 font-medium rounded-lg flex items-center justify-center gap-2 cursor-not-allowed border border-gray-200"
-          disabled
+          className="w-full mt-2 py-2.5 px-4 bg-orange-50 text-orange-600 hover:bg-orange-100 font-medium rounded-lg flex items-center justify-center gap-2 transition-colors border border-orange-200"
         >
           <Gavel className="w-4 h-4" />
-          入札する（準備中）
+          入札する
         </button>
       </div>
     </Link>

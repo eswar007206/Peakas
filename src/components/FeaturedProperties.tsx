@@ -1,5 +1,5 @@
 import { Property } from "@/hooks/useProperties";
-import { MapPin, ArrowRight, Loader2 } from "lucide-react";
+import { MapPin, ArrowRight, Loader2, Gavel } from "lucide-react";
 import { Link } from "react-router-dom";
 import { trackPropertyClick } from "@/hooks/useAnalytics";
 import { formatPrice } from "@/lib/formatPrice";
@@ -38,10 +38,10 @@ export const FeaturedProperties = ({ properties, isLoading }: FeaturedProperties
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              おすすめ物件
+              オークション出品中
             </h2>
             <p className="text-muted-foreground mt-1">
-              厳選された物件をご紹介
+              入札受付中の厳選物件
             </p>
           </div>
           <Link
@@ -72,7 +72,14 @@ export const FeaturedProperties = ({ properties, isLoading }: FeaturedProperties
                     {property.bhk} LDK
                   </span>
                 </div>
+                <div className="absolute top-3 right-3">
+                  <span className="px-2 py-1 bg-amber-500 text-white text-xs font-medium rounded flex items-center gap-1">
+                    <Gavel className="w-3 h-3" />
+                    入札受付中
+                  </span>
+                </div>
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                  <p className="text-xs text-white/80 mb-1">現在価格</p>
                   <p className="text-white text-lg font-bold">
                     {formatPrice(property.start_price)}
                   </p>

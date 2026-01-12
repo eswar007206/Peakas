@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
 import { ArrowLeft, MapPin, Calendar, Home, Maximize, Bath, Car, ChevronLeft, ChevronRight, Phone, Mail, Share2, Gavel } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -13,6 +14,7 @@ import { trackPageView } from "@/hooks/useAnalytics";
 const PropertyDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [property, setProperty] = useState<Property | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -191,11 +193,16 @@ const PropertyDetail = () => {
                   <p className="text-3xl font-bold text-orange-500">{formatPrice(property.start_price)}</p>
                 </div>
                 <button
-                  disabled
-                  className="w-full md:w-auto px-8 py-4 bg-gray-100 text-gray-400 font-semibold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed border border-gray-200"
+                  onClick={() => {
+                    toast({
+                      title: "準備中",
+                      description: "このサービスは将来的にオークション形式で運営される予定です。",
+                    });
+                  }}
+                  className="w-full md:w-auto px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-orange-500/20"
                 >
                   <Gavel className="w-5 h-5" />
-                  入札する（準備中）
+                  入札する
                 </button>
               </div>
             </div>

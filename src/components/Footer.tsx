@@ -7,11 +7,12 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="text-2xl font-bold tracking-tight mb-6 block">
-              PEAKAS
+            <Link to="/" className="mb-6 block">
+              <img src="/logo.png" alt="PEAKAS" className="h-12 brightness-0 invert" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              九州から不動産取引の未来を。情報の透明性と取引の確実性を極限まで高めた、日本最高峰の次世代オンラインオークションプラットフォーム。
+              不動産オークションの新時代。<br />
+              入札形式で透明性の高い公正な取引を実現する、次世代オンラインオークションプラットフォーム。
             </p>
           </div>
 

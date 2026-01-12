@@ -20,9 +20,9 @@ export const Header = () => {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - Text Only */}
-          <Link to="/" className="text-xl font-bold text-gray-900 tracking-tight">
-            PEAKAS
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="PEAKAS" className="h-14" />
           </Link>
 
           {/* Desktop Navigation */}
