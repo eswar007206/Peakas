@@ -57,7 +57,7 @@ Peakas is a comprehensive real estate platform built for users looking to buy an
     npm run dev
     ```
 
-5.  Open your browser and navigate to the local URL provided by Vite (usually `http://localhost:8080` or `http://localhost:5173`).
+5.  Open your browser and navigate to the local URL provided by Vite (usually `http://localhost:5173`).
 
 ## Scripts
 
